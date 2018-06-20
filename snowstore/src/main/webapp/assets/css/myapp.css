@@ -3,13 +3,50 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
-
-body {
-  padding-top: 54px;
+html {
+	min-height: 100%;
+	position: relative;
 }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
+body {
+	padding-top: 54px;
+	height: 100%;
+	margin-bottom: 60px;
+}
+
+@media ( min-width : 992px) {
+	body {
+		padding-top: 56px;
+	}
+}
+
+footer {
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/*
+   custom styling
+*/
+.wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+.content {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 15px;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	min-height: 50px;
+	line-height: 50px; /* Vertically center the text there */
 }

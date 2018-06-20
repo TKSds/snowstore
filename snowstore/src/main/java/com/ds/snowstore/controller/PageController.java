@@ -13,9 +13,27 @@ public class PageController {
 	@RequestMapping(value= {"/", "/home", "/index"}, method=RequestMethod.GET)
 	public String index(Model model) {
 		
-		model.addAttribute("greeting", "Welcome to the Snow Store!");
+		model.addAttribute("title", "Home");
+		model.addAttribute("userClickHome", true);
 		return "page";
 	}
 	
+	@RequestMapping(value="/about", method=RequestMethod.GET)
+	public String aboutus(Model model) {
+		
+		model.addAttribute("title", "About Us");
+		model.addAttribute("userClickAbout", true);
+		
+		return "page";
+	}
+	
+	@RequestMapping(value="/contact", method=RequestMethod.GET)
+	public String contact(Model model) {
+		
+		model.addAttribute("title", "Contact Us");
+		model.addAttribute("userClickContact", true);
+		
+		return "page";
+	}
 
 }
