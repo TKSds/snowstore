@@ -23,6 +23,13 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- Link backend project with frontend project -->
+		<dependency>
+			<groupId>com.ds</groupId>
+			<artifactId>storebackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>

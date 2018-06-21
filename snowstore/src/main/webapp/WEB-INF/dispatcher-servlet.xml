@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
    <context:component-scan base-package="com.ds.snowstore.controller" />
+   <context:component-scan base-package="com.ds.storebackend.daoimpl" />
    
    <bean id="viewResolver"
          class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -30,7 +30,7 @@
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Darkly Theme -->
+<!-- Bootstrap Slate Theme -->
 <link href="${css}/bootstrap-slate-theme.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
@@ -47,7 +47,7 @@
 
 		<!-- Page Content -->
 		<div class="content">
-		
+
 			<!-- Loading the home content -->
 			<c:if test="${userClickHome == true}">
 				<%@include file="home.jsp"%>
@@ -62,7 +62,12 @@
 			<c:if test="${userClickContact == true}">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
+
+			<!-- Load only when the user clicks View All Products / Category -->
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts==true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
+
 		</div>
 
 		<!-- Footer -->
