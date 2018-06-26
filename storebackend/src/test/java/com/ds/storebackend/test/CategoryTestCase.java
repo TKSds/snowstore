@@ -91,7 +91,10 @@ public class CategoryTestCase {
 		category.setDescription("Description for snow boots");
 		category.setImageURL("Boots_01.png");
 		
-		assertEquals("Successfully added a category inside the table!", true, categoryDAO.add(category));
+//		assertEquals("Successfully added a category inside the table!", true, categoryDAO.add(category));
+//		Incorrect comment in asserEquals, it should be a message stating that something went wrong while testing, not a success message!
+		
+		assertEquals("Something went wrong while adding a new category!", true, categoryDAO.add(category));
 		
 		category = new Category();
 		
@@ -99,30 +102,24 @@ public class CategoryTestCase {
 		category.setDescription("Description for bindings");
 		category.setImageURL("Bindings_02.png");
 		
-		assertEquals("Successfully added a category inside the table!", true, categoryDAO.add(category));
+		assertEquals("Something went wrong while adding a new category!", true, categoryDAO.add(category));
 		
 		// update operation
 		category = categoryDAO.get(2);
 		
 		category.setName("Snowboard");
 		
-		assertEquals("Successfully updated a single category in the table!", true, categoryDAO.update(category));
+		assertEquals("Something went wrong while updating a category!", true, categoryDAO.update(category));
 		
 		// delete operation
-		assertEquals("Successfully deleted a single category in the table!", true, categoryDAO.delete(category));
+		assertEquals("Something went wrong while deleting a category!", true, categoryDAO.delete(category));
 		
 		// fetching the list
-		assertEquals("Successfully fetched the list of categories from the table!", 1, categoryDAO.list().size());
-		
-		
+		assertEquals("Something went wrong while fetching the list of categories from the table!", 1, categoryDAO.list().size());
+				
 		
 	}
 
-    
-    
-    
-    
-    
     
 }
 

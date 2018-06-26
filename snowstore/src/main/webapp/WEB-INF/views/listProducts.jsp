@@ -22,7 +22,8 @@
 							<ol class="breadcrumb">
 
 								<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">All Products</li>
+								<li class="breadcrumb-item active" aria-current="page">All
+									Products</li>
 
 							</ol>
 						</nav>
@@ -39,6 +40,25 @@
 							</ol>
 						</nav>
 					</c:if>
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-xs-12">
+
+					<table id="productListTable" class="table table striped table-borderd">
+
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+
+					</table>
 
 				</div>
 
