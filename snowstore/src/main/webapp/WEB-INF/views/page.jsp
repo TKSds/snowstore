@@ -7,7 +7,6 @@
 <spring:url var="js" value="/resources/js/" />
 <spring:url var="images" value="/resources/images/" />
 
-
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -34,7 +33,7 @@
 <link href="${css}/bootstrap-slate-theme.css" rel="stylesheet">
 
 <!-- Bootstrap DataTable -->
-<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -85,7 +84,7 @@
 		<script src="${js}/jquery.dataTables.js"></script>
 		
 		<!-- DataTable Bootstrap Script -->
-		<script src="${js}/dataTables.bootstrap.js"></script>
+		<script src="${js}/dataTables.bootstrap4.js"></script>
 
 		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>

@@ -49,7 +49,7 @@
 
 				<div class="col-xs-12">
 
-					<table id="productListTable" class="table table striped table-borderd">
+					<table id="productListTable" class="table table-striped table-bordered" style="width:100%">
 
 						<thead>
 							<tr>
