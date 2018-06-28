@@ -80,3 +80,6 @@ VALUES ('PRDBNDS001UNON', 'Union Force', 'Union', 'Union description', 250, 15, 
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
 VALUES ('PRDBTTS001BRTN', 'Burton Ion Boa', 'Burton', 'Burton Ion Boa description', 300, 6, true, 3, 1, 0, 0);
+
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES('PRDRSSS001DSTR', 'Rossignol Distrikt 2019', 'Rossignol', 'Rossignol board description', 300, 4, true, 1, 3, 0, 0);

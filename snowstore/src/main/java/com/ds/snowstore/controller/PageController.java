@@ -2,6 +2,8 @@ package com.ds.snowstore.controller;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,19 +11,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ds.snowstore.exception.ProductNotFoundException;
 import com.ds.storebackend.dao.CategoryDAO;
+import com.ds.storebackend.dao.ProductDAO;
 import com.ds.storebackend.dto.Category;
+import com.ds.storebackend.dto.Product;
 
 @Controller
 public class PageController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	@RequestMapping(value= {"/", "/home", "/index"}, method=RequestMethod.GET)
 	public String index(Model model) {
 		
 		model.addAttribute("title", "Home");
+		
+		logger.info("Inside PageController index method! - INFO");
+		logger.debug("Inside PageController index method! - DEBUG");
 		
 		//passing the list of categories
 		model.addAttribute("categories", categoryDAO.list());
@@ -84,5 +97,52 @@ public class PageController {
 		
 		return "page";
 	}
+	
+	// Viewing a single product
+	
+	@RequestMapping(value= {"/show/{id}/product"}, method = RequestMethod.GET)
+	public String showSingleProduct(Model model, @PathVariable("id") int id) throws ProductNotFoundException {
+		
+	    Product product = productDAO.get(id);
+	    
+	    // If product is unavailable ProductNotFoundException will be thrown
+	    if (product == null) throw new ProductNotFoundException();
+	    
+	    // update the view count
+	    product.setViews(product.getViews() + 1);
+	    productDAO.update(product);
+	    
+	    model.addAttribute("title", product.getName());
+	    model.addAttribute("product", product);
+	    
+	    model.addAttribute("userClickShowProduct", true);
+		
+		return "page";
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

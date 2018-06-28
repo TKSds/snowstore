@@ -50,3 +50,10 @@ footer {
 	min-height: 50px;
 	line-height: 50px; /* Vertically center the text there */
 }
+
+.dataTableImg {
+	
+	width: 100px;
+	height: 100px;
+	
+}
