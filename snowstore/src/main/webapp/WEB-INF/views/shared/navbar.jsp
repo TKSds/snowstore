@@ -13,6 +13,7 @@
 						<span class="sr-only">(current)</span>
 				</a></li>
 				<li id="listProducts" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/show/all/products">View All Products</a>
+				<li id="manageProducts" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/manage/products">Manage Products</a>
 				<li id="about" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/about">About</a></li>
 				<li id="contact" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/contact">Contact</a></li>
 			</ul>
