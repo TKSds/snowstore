@@ -104,6 +104,9 @@
 		<!-- DataTable Bootstrap Script -->
 		<script src="${js}/dataTables.bootstrap4.js"></script>
 
+		<!-- Bootbox -->
+		<script src="${js}/bootbox.min.js"></script>
+
 		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>
 

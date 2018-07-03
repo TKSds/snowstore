@@ -25,7 +25,7 @@ public class ProductValidator implements Validator {
 			return;
 		}
 
-		if (!(product.getFile().getContentType().equals("image/jpg")
+		if (!(product.getFile().getContentType().equals("image/jpeg")
 				|| product.getFile().getContentType().equals("image/png")
 				|| product.getFile().getContentType().equals("image/gif"))) {
 

@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ds.snowstore.util.FileUploadUtility;
 import com.ds.snowstore.validator.ProductValidator;
@@ -91,6 +93,46 @@ public class ManagementController {
 		
 		return "redirect:/manage/products?operation=product";
 	}
+	
+	// handle product activation
+	
+	@RequestMapping(value = "/product/{id}/activation", method=RequestMethod.POST)
+	@ResponseBody
+	public String handleProductActivation(@PathVariable int id) {
+		
+		// fetch product by id form the database
+		Product product = productDAO.get(id);
+		boolean isActive = product.isActive();
+		
+		// activating and deactivating based on the value of the active field
+		product.setActive(!product.isActive());
+		
+		// updating the product
+		productDAO.update(product);
+		
+		
+		return (isActive) ? "You have successfully deactivated the product with id " + product.getId() :
+			                "You have successfully activated the product with id " + product.getId();
+	}
+	
+	// show edit product
+	
+	@RequestMapping(value = "/{id}/product", method=RequestMethod.GET)
+	public String showEditProduct(@PathVariable int id, Model model) {
+		
+		model.addAttribute("userClickManageProducts", true);
+		model.addAttribute("title", "Manage Products");
+		
+		// fetch the product from the database
+		Product nProduct = productDAO.get(id);
+		
+		// set the product fetched from the database
+		model.addAttribute("product", nProduct);
+		
+		return "page";
+	}
+	
+	
 
 
 	// returning categories for all the request mapping

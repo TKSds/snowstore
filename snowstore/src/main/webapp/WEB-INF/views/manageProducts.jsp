@@ -6,7 +6,7 @@
 	<div class="row">
 
 
-		<c:if test="${not empty message}">
+		<c:if test="${message eq 'Product Submited Successfully!'}">
 			<div class="col-lg-12">
 
 				<div class="alert alert-success alert-dismissible">
@@ -18,6 +18,23 @@
 				</div>
 
 			</div>
+		</c:if>
+		
+		<c:if test="${message=='Validation Failed For Product Submission!'}">
+		
+		    <div class="col-lg-12">
+		    
+		    	<div class="alert alert-warning alert-dismissible">
+
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+					${message}
+
+				</div>
+		    
+		    
+		    </div>
+		
 		</c:if>
 
 		<div class="col-md-8 offset-md-2">
@@ -108,15 +125,16 @@
 							</div>
 
 						</div>
-                        
-                        <!-- File Element For Image Upload -->
+
+						<!-- File Element For Image Upload -->
 						<div class="form-group row">
 
-							<label class="col-lg-3 col-form-label form-control-label" for="file">Select Image: </label>
+							<label class="col-lg-3 col-form-label form-control-label"
+								for="file">Select Image: </label>
 
 							<div class="col-lg-9">
 
-								<sf:input type="file" path="file" id="file"	class="form-control" />
+								<sf:input type="file" path="file" id="file" class="form-control" />
 								<sf:errors path="file" cssClass="help-block" element="em" />
 
 							</div>
@@ -172,7 +190,58 @@
 
 	</div>
 
+	<div class="row">
+
+		<div class="col-lg-12">
+			<h3>Available Products</h3>
+			<hr />
+
+		</div>
+
+		<div class="col-lg-12">
+			<div style="overflow: auto">
+
+				<!-- Products table for Admin -->
+
+				<table id="adminProductsTable"
+					class="table table-striped table-bordered">
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>No. of items in stock</th>
+							<th>Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Brand</th>
+							<th>No. of items in stock</th>
+							<th>Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</tfoot>
 
 
+
+				</table>
+
+
+			</div>
+
+		</div>
+
+
+	</div>
 
 </div>
