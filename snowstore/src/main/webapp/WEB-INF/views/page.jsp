@@ -94,8 +94,13 @@
 		<%@include file="./shared/footer.jsp"%>
 
 
-		<!-- Bootstrap core JavaScript -->
+		<!-- jQuery -->
 		<script src="${js}/jquery.min.js"></script>
+		
+		<!-- jQuery Validate Plugin -->
+		<script src="${js}/jquery.validate.js"></script>
+		
+		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 
 		<!-- DataTable Plugin -->

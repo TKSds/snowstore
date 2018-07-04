@@ -75,6 +75,14 @@ footer {
     order: 1;
 }
 
+/* Modal Fix Alignment */
+.modal-header h4 {
+	order: 0;
+}
+.modal-header button {
+	order: 1;
+}
+
 /* Toggle Switch */
 .switch {
 	width: 50px;

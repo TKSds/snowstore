@@ -52,10 +52,12 @@ public class ManagementController {
 
 		model.addAttribute("product", nProduct);
 		
-		if (operation != null) {
-			
+		if (operation != null) {	
 			if (operation.equals("product")) {
 				model.addAttribute("message", "Product Submited Successfully!");
+			}
+			else if(operation.equals("category")) {
+				model.addAttribute("message", "Category Submited Successfully!");
 			}
 		}
 
@@ -67,7 +69,15 @@ public class ManagementController {
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, HttpServletRequest request) {
 		
-		new ProductValidator().validate(mProduct, results);
+		// handle image validation for new products
+		if(mProduct.getId() == 0) {
+			new ProductValidator().validate(mProduct, results);
+		} else {
+			if(!mProduct.getFile().getOriginalFilename().equals("")) {
+				new ProductValidator().validate(mProduct, results);
+			}
+		}
+		
 		
 		
 		// check if there any errors
@@ -83,8 +93,14 @@ public class ManagementController {
 		
         logger.info(mProduct.toString());
 		
-		// create a new product record
-		productDAO.add(mProduct);
+        if (mProduct.getId() == 0) {
+        	// create a new product record if id = 0
+        	productDAO.add(mProduct);
+        } else {
+        	// update product if id is not 0
+        	productDAO.update(mProduct);
+        }
+		
 		
 		
 		if (!mProduct.getFile().getOriginalFilename().equals("")) {
@@ -132,6 +148,16 @@ public class ManagementController {
 		return "page";
 	}
 	
+	// to handle category submission / new category
+	
+	@RequestMapping(value="/category", method=RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		
+		// add new category
+		categoryDAO.add(category);
+		
+		return "redirect:/manage/products?operation=category";
+	}
 	
 
 
@@ -142,5 +168,15 @@ public class ManagementController {
 		return categoryDAO.list();
 
 	}
+	
+	
+	@ModelAttribute("category")
+	public Category getCategory() {
+		
+		return new Category();
+		
+	}
+	
+	
 	
 }

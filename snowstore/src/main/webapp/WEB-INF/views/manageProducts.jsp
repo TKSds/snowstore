@@ -6,7 +6,7 @@
 	<div class="row">
 
 
-		<c:if test="${message eq 'Product Submited Successfully!'}">
+		<c:if test="${(message eq 'Product Submited Successfully!') && (message eq 'Category Submited Successfully!')}">
 			<div class="col-lg-12">
 
 				<div class="alert alert-success alert-dismissible">
@@ -151,6 +151,16 @@
 								<sf:select class="form-control" id="categoryId"
 									path="categoryId" items="${categories}" itemLabel="name"
 									itemValue="id" />
+									
+								<c:if test="${product.id == 0}">
+								
+								<div class="text-right">
+								
+								    <br/>
+								    <button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-warning">Add Category</button>
+								    
+								</div>
+								</c:if>
 
 							</div>
 
@@ -190,7 +200,53 @@
 
 	</div>
 
-	<div class="row">
+   <!-- Modal -->
+   <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1"  aria-labeldby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      
+          <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header text-center">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                     <span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+              </div>
+              
+               <!-- Category Form -->
+              <sf:form id="categoryForm" modelAttribute="category" action="${contextRoot}/manage/category" method="POST"
+                      class="form">
+              <div class="modal-body mx-3">
+                      
+                      <div class="md-form mb-5">
+                           <label for="category_name">Category Name</label>
+                           <div class="col-lg-12">
+                              <sf:input type="text" path="name" id="category_name" class="form-control" />            
+                           </div> 
+                      </div>
+                      
+                      <div class="md-form mb-5">
+                           <label for="category_description">Category Description</label>
+                           <div class="col-lg-12">
+                              <sf:textarea cols="" rows="5" path="description" id="category_description" class="form-control" />            
+                           </div> 
+                      </div>       
+              </div>
+              
+              <!-- Modal Footer -->
+			  <div class="modal-footer d-flex justify-content-center">
+					<input type="submit" name="submit" value="Add Category"
+						class="btn btn-primary" />
+				</div>
+
+			
+			</sf:form>
+			</div>
+      
+      </div>
+   </div>
+   
+   	<div class="row">
+
 
 		<div class="col-lg-12">
 			<h3>Available Products</h3>
@@ -243,5 +299,5 @@
 
 
 	</div>
-
+   
 </div>
