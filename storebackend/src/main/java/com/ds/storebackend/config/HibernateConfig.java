@@ -62,6 +62,10 @@ public class HibernateConfig {
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		
+		
+		// use validate instead of update for postgresql
+		properties.put("hibernate.hbm2ddl.auto", "validate");
+		
 		return properties;
 	}
 	
