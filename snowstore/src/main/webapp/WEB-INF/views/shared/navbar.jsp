@@ -17,6 +17,11 @@
 				<li id="about" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/about">About</a></li>
 				<li id="contact" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/contact">Contact</a></li>
 			</ul>
+			
+			<ul class="navbar-nav navbar-right">
+			   <li id="register" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/register">Sign Up</a></li>
+			   <li id="login" class="nav-item"><a class="nav-link py-0" href="${contextRoot}/login">Login</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>

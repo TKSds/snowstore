@@ -119,30 +119,19 @@ public class PageController {
 		
 		return "page";
 	}
+	
+	/* having similar mappings to our flow id - fixed in dispatcher-servlet with order property and value -1 for FlowHandlerMapping view*/
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public String register(Model model) {
+		
+		model.addAttribute("title", "Sing Up");
+
+		return "page";
+	}
 
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

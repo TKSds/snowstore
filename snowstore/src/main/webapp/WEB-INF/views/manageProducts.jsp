@@ -53,18 +53,13 @@
 						method="POST" enctype="multipart/form-data">
 
 						<div class="form-group row">
-
 							<label class="col-lg-3 col-form-label form-control-label">Enter
 								Product Name: </label>
-
 							<div class="col-lg-9">
-
 								<sf:input type="text" path="name" id="name"
 									placeholder="Product Name" class="form-control" />
 								<sf:errors path="name" cssClass="help-block" element="em" />
-
 							</div>
-
 						</div>
 
 						<div class="form-group row">
