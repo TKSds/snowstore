@@ -128,6 +128,15 @@ public class PageController {
 
 		return "page";
 	}
+	
+	/* Login */
+	@RequestMapping(value="/login")
+	public String login(Model model) {
+		
+		model.addAttribute("title", "Login");
+		
+		return "login";
+	}
 
 	
 	
