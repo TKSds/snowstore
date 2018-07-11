@@ -22,8 +22,7 @@
 							<label class="col-lg-3 col-form-label form-control-label">First
 								Name: </label>
 							<div class="col-lg-9">
-								<sf:input type="text" path="firstName" id="firstName"
-									placeholder="Please enter your first name" class="form-control" />
+								<sf:input type="text" path="firstName" placeholder="Please enter your first name" class="form-control" />
 								<sf:errors path="firstName" cssClass="help-block" element="em" />
 							</div>
 						</div>
@@ -32,8 +31,7 @@
 							<label class="col-lg-3 col-form-label form-control-label">Last
 								Name: </label>
 							<div class="col-lg-9">
-								<sf:input type="text" path="lastName" id="lastName"
-									placeholder="Please enter your last name" class="form-control" />
+								<sf:input type="text" path="lastName" placeholder="Please enter your last name" class="form-control" />
 								<sf:errors path="lastName" cssClass="help-block" element="em" />
 							</div>
 						</div>
@@ -42,9 +40,7 @@
 							<label class="col-lg-3 col-form-label form-control-label">Email:
 							</label>
 							<div class="col-lg-9">
-								<sf:input type="text" path="email" id="email"
-									placeholder="Please enter your email address"
-									class="form-control" />
+								<sf:input type="text" path="email" placeholder="Please enter your email address" class="form-control" />
 								<sf:errors path="email" cssClass="help-block" element="em" />
 							</div>
 						</div>
@@ -53,10 +49,8 @@
 							<label class="col-lg-3 col-form-label form-control-label">Contact
 								Number: </label>
 							<div class="col-lg-9">
-								<sf:input type="text" path="contactNumber" id="firstName"
-									placeholder="XXXXXXXXXX" class="form-control" max-length="10" />
-								<sf:errors path="contactNumber" cssClass="help-block"
-									element="em" />
+								<sf:input type="text" path="contactNumber" placeholder="XXXXXXXXXX" class="form-control" max-length="10" />
+								<sf:errors path="contactNumber" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -64,9 +58,17 @@
 							<label class="col-lg-3 col-form-label form-control-label">Password:
 							</label>
 							<div class="col-lg-9">
-								<sf:input type="password" path="password" id="password"
-									placeholder="Please enter a password" class="form-control" />
+								<sf:input type="password" path="password" placeholder="Please enter a password" class="form-control" />
 								<sf:errors path="password" cssClass="help-block" element="em" />
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label class="col-lg-3 col-form-label form-control-label">Confirm Password:
+							</label>
+							<div class="col-lg-9">
+								<sf:input type="password" path="confirmPassword" placeholder="Please confirm password" class="form-control" />
+								<sf:errors path="confirmPassword" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -75,10 +77,11 @@
 							<label class="col-lg-3 col-form-label form-control-label">Select
 								Role: </label>
 							<div class="col-lg-9">
-								<label class="radio-inline"> <sf:radiobutton path="role"
-										value="USER" checked="checked" /> User
-								</label> <label class="radio-inline"> <sf:radiobutton
-										path="role" value="SUPPLIER" /> Supplier
+								<label class="radio-inline"> 
+								<sf:radiobutton path="role" value="USER" checked="checked" /> User
+								</label> 
+								<label class="radio-inline">
+								 <sf:radiobutton path="role" value="SUPPLIER" /> Supplier
 								</label>
 							</div>
 						</div>
@@ -96,12 +99,12 @@
 						</div>
 
 
-
 					</sf:form>
 
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<%@include file="../shared/flows-footer.jsp"%>
+<%@include file="../shared/flows-footer.jsp"%>

@@ -169,9 +169,7 @@
 
 								<input type="submit" name="submit" value="Submit"
 									class="btn btn-primary" />
-
 							</div>
-
 						</div>
 
 						<!-- Hidden fields for product -->

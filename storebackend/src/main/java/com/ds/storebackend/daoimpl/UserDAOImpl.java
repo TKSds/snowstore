@@ -2,6 +2,8 @@ package com.ds.storebackend.daoimpl;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -62,8 +64,9 @@ public class UserDAOImpl implements UserDAO {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery, User.class)
 					.setParameter("email", email)
-					.getSingleResult();
-			
+					.getSingleResult();		
+		} catch (NoResultException ex) {
+			return null;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;

@@ -102,8 +102,6 @@
 
 						</div>
 
-
-
 					</sf:form>
 
 				</div>
@@ -111,5 +109,6 @@
 		</div>
 
 	</div>
+</div>
 
-	<%@include file="../shared/flows-footer.jsp"%>
+<%@include file="../shared/flows-footer.jsp"%>

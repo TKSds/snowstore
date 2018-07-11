@@ -10,6 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "user_detail")
@@ -27,17 +32,42 @@ public class User implements Serializable {
 	private int id;
 
 	@Column(name = "first_name")
+	@NotBlank(message = "Please enter first name!")
 	private String firstName;
 	
 	@Column(name = "last_name")
+	@NotBlank(message = "Please enter last name!")
 	private String lastName;
 	
 	private String role;
+	
+	@NotBlank(message = "Please enter email address!")
+	@Email(message = "Please enter a valid email address!")
 	private String email;
+	
 	private boolean enabled = true;
+	
+	@NotBlank(message = "Please enter password")
 	private String password;
 	
+	// Confirm Password Transient Field
+	@Transient
+	private String confirmPassword;
+	
+	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	
+	//---------------------------------//
+
 	@Column(name = "contact_number")
+	@NotBlank(message = "Please enter contact number")
+	@Size(min= 6, max = 10)
 	private String contactNumber;
 	
 	// only by saving the user the cart will also be stored (cascade.all)
