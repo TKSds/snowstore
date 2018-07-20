@@ -66,7 +66,19 @@
 
 		<!-- Page Content -->
 		<div class="container">
-			<form class="form-horizontal" role="form" method="POST" action="${contextRoot}/login">
+		
+		<!-- this will be displayed if the credentials are wrong -->
+		<c:if test="${not empty message}">
+		    <div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+					   <div class="alert alert-danger">${message}</div>
+					</div>
+			</div>
+		</c:if>
+		
+			<form class="form-horizontal" role="form" method="POST"
+				action="${contextRoot}/login">
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
@@ -83,19 +95,13 @@
 								<div class="input-group-addon" style="width: 2.6rem">
 									<i class="fa fa-at"></i>
 								</div>
-								<input type="text" name="username" class="form-control" id="username"
-									placeholder="you@example.com" required autofocus>
+								<input type="text" name="username" class="form-control"
+									id="username" placeholder="you@example.com" required autofocus>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="form-control-feedback">
-							<span class="text-danger align-middle"> <i
-								class="fa fa-close"></i> Error message
-							</span>
-						</div>
-					</div>
 				</div>
+				
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
@@ -110,13 +116,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="form-control-feedback">
-							<span class="text-danger align-middle"> Password entered is incorrect
-							</span>
-						</div>
-					</div>
 				</div>
+				
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-6" style="padding-top: .35rem">
@@ -128,16 +129,17 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="row" style="padding-top: 1rem">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-sign-in"></i> Login
-						</button>
-						<a class="btn btn-link" href="/password/reset">Forgot Your
-							Password?</a>
+						<button type="submit" class="btn btn-success" value="Login"><i class="fa fa-sign-in"></i> Login</button>
+						<input type="hidden" name ="${_csrf.parameterName}" value ="${_csrf.token}" />
+						<a class="btn btn-link" href="${contextRoot}/register">New User?</a>
 					</div>
 				</div>
+				
+				<!-- Add forgot password with ${contextRoot}/password/reset -->
 			</form>
 		</div>
 

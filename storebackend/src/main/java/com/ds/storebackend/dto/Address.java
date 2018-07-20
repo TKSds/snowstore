@@ -52,15 +52,15 @@ public class Address implements Serializable {
 
 	@NotBlank(message = "Please enter city")
 	private String city;
-	
+
 	@NotBlank(message = "Please enter state")
 	private String state;
-	
+
 	@NotBlank(message = "Please enter country")
 	private String country;
 
 	@Column(name = "postal_code")
-	@Size(min=2, max=8)
+	@Size(min = 2, max = 8)
 	@NotBlank(message = "Please enter postal code, must not exceed the value of 8!")
 	private String postalCode;
 

@@ -1,4 +1,5 @@
 $(function() {
+	
 	// solving the active menu problem
 
 	switch (menu) {
@@ -21,6 +22,19 @@ $(function() {
 		$('#listProducts').addClass('active');
 		$('#a_' + menu).addClass('active');
 		break;
+	}
+	
+	// for handling CSRF token
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+
+	if(token.length > 0 && header.length > 0) {		
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {	
+			xhr.setRequestHeader(header, token);
+
+		});				
 	}
 
 	// code for jQuery dataTable
@@ -202,22 +216,15 @@ $(function() {
 								data : 'active',
 								bSortable : false,
 								mRender : function(data, type, row) {
-
 									var str = '';
 
-									str += '<label class="switch">';
 									if (data) {
-										str += '<input type="checkbox" checked="checked" value="'
-												+ row.id + '" />';
+										str += '<label class="switch"><input type="checkbox" value="'+row.id+'" checked="checked"><div class="slider"></div></label>';
 									} else {
-										str += '<input type="checkbox" value="'
-												+ row.id + '" />';
+										str += '<label class="switch"><input type="checkbox" value="'+row.id+'"><div class="slider"></div></label>';
 									}
 
-									str += '<div class="slider"></div></label>';
-
 									return str;
-
 								}
 
 							},
@@ -228,83 +235,51 @@ $(function() {
 								mRender : function(data, type, row) {
 									var str = '';
 
-									str += '<a href="'
-											+ window.contextRoot
-											+ '/manage/'
-											+ data
-											+ '/product" class="btn btn-warning">';
+									str += '<a href="' + window.contextRoot + '/manage/'+ data + '/product" class="btn btn-warning">';
 									str += '<i class="fa fa-pencil" aria-hidden="true"></i></a>';
-
+									
 									return str;
 								}
 							}
 
 					],
 
-					initComplete : function() {
+					initComplete: function () {
 						var api = this.api();
-						api
-								.$('.switch input[type="checkbox"]')
-								.on(
-										'change',
-										function() {
-
-											var checkbox = $(this);
-											var checked = checkbox
-													.prop('checked');
-											var dMsg = (checked) ? 'You want to activate the product?'
-													: 'You want to deactivate the product?';
-
-											var value = checkbox.prop('value');
-
-											bootbox
-													.confirm({
-
-														size : 'medium',
-														title : 'Product Activation & Deactivation',
-														message : dMsg,
-														callback : function(
-																confirmed) {
-
-															if (confirmed) {
-
-																console
-																		.log(value);
-
-																var activationUrl = window.contextRoot
-																		+ '/manage/product/'
-																		+ value
-																		+ '/activation';
-
-																$
-																		.post(
-																				activationUrl,
-																				function(
-																						data) {
-																					bootbox
-																							.alert({
-																								size : 'medium',
-																								title : 'Information',
-																								message : data
-																							});
-																				})
-
-															} else {
-
-																checkbox
-																		.prop(
-																				'checked',
-																				!checked);
-
-															}
-
-														}
-													});
-
-										});
+						api.$('.switch input[type="checkbox"]').on('change' , function() {							
+							var dText = (this.checked)? 'You want to activate the Product?': 'You want to de-activate the Product?';
+							var checked = this.checked;
+							var checkbox = $(this);
+							debugger;
+						    bootbox.confirm({
+						    	size: 'medium',
+						    	title: 'Product Activation/Deactivation',
+						    	message: dText,
+						    	callback: function (confirmed) {
+							        if (confirmed) {
+							            $.ajax({							            	
+							            	type: 'POST',
+							            	url: window.contextRoot + '/manage/product/'+checkbox.prop('value')+'/activation',
+							        		timeout : 100000,        	    
+							        		success : function(data) {
+							        			bootbox.alert(data);							        										        			
+							        		},
+							        		error : function(e) {
+							        			bootbox.alert('ERROR: '+ e);
+							        			//display(e);
+							        		}						            	
+							            });
+							        }
+							        else {							        	
+							        	checkbox.prop('checked', !checked);
+							        }
+						    	}
+						    });																											
+						});
+							
 					}
 
-				});
+		 });
 	}
 
 	// ------------------------------------------------------------------
@@ -367,7 +342,7 @@ $(function() {
 
 	var $loginForm = $('#loginForm');
 
-	if ($login.length) {
+	if ($loginForm.length) {
 
 		$loginForm.validate({
 

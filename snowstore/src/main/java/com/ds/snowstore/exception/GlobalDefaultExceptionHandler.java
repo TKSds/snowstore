@@ -42,12 +42,12 @@ public class GlobalDefaultExceptionHandler {
 		
 		// Only for debugging the application, not meant for production, only for dev level
 		
-/*		StringWriter sw = new StringWriter();
-		PrintWriter pw = new PrintWriter(sw);
-		
-		ex.printStackTrace(pw);
-		
-		model.addAttribute("errorDescription", sw.toString());*/
+//		StringWriter sw = new StringWriter();
+//		PrintWriter pw = new PrintWriter(sw);
+//		
+//		ex.printStackTrace(pw);
+//		
+//     	model.addAttribute("errorDescription", sw.toString());
 		
 		model.addAttribute("errorDescription", ex.toString());
 		

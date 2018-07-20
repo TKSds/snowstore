@@ -93,38 +93,46 @@ INSERT INTO category (name, description, image_url, is_active) VALUES ('Helmets'
 -- insert into user_detail
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Sebastian', 'Dobrea', 'ADMIN', true, 'admin', 'ds@gmail.com', '0726332705');
+VALUES ('Sebastian', 'Dobrea', 'ADMIN', true, '{noop}dev', 'ds@gmail.com', '0726332705');
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Jake', 'Burton', 'SUPPLIER', true, 'supplier', 'jakeb@burtonsnowboards.com', '0344566777');
+VALUES ('Jake', 'Burton', 'SUPPLIER', true, '{noop}supplier', 'jakeb@burtonsnowboards.com', '0344566777');
 
 INSERT INTO user_detail(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Mike', 'Olson', 'SUPPLIER', true, 'supplier', 'mikeo@bluetomato.com', '4031256789');
+VALUES ('Mike', 'Olson', 'SUPPLIER', true, '{noop}supplier', 'mikeo@bluetomato.com', '4031256789');
 
 INSERT INTO user_detail(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Marius', 'George', 'SUPPLIER', true, 'supplier', 'mg@funride.ro', '0733669339');
+VALUES ('Marius', 'George', 'SUPPLIER', true, '{noop}supplier', 'mg@funride.ro', '0733669339');
 
 INSERT INTO user_detail(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Andrei', 'Ion', 'USER', true, 'user', 'andreion@gmail.com', '0747314248');
+VALUES ('Andrei', 'Ion', 'USER', true, '{noop}user', 'andreion@gmail.com', '0747314248');
 
 
 
 -- add products
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDBRD001BRTN', 'Burton Process Flying V', 'Burton', 'One of the best boards from Burton', 500, 10, true, 1, 1, 0, 0);
+VALUES ('PRD90A9D4E295', 'Burton Process Flying V', 'Burton', 'One of the best boards from Burton', 500, 10, true, 1, 4, 0, 0);
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDBRD002ROME', 'Rome Mountain Division', 'Rome', 'Best of a Board. Ride the buck, be the buck', 650, 5, true, 1, 2, 0, 0);
+VALUES ('PRDF005A113B6', 'Rome Mountain Division', 'Rome', 'Best of a Board. Ride the buck, be the buck', 650, 5, true, 1, 4, 0, 0);
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDGGLS001DRGN', 'Dragon NFX2', 'Dragon', 'Dragon description', 170, 8, true, 5, 3, 0, 0);
+VALUES ('PRDC588840157', 'Dragon NFX2', 'Dragon', 'Dragon description', 170, 8, true, 5, 4, 0, 0);
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDBNDS001UNON', 'Union Force', 'Union', 'Union description', 250, 15, true, 2, 2, 0, 0);
+VALUES ('PRDCEF46ED887', 'Union Force', 'Union', 'Union description', 250, 15, true, 2, 4, 0, 0);
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDBTTS001BRTN', 'Burton Ion Boa', 'Burton', 'Burton Ion Boa description', 300, 6, true, 3, 1, 0, 0);
+VALUES ('PRD8266379E64', 'Burton Ion Boa', 'Burton', 'Burton Ion Boa description', 300, 6, true, 3, 4, 0, 0);
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES('PRDRSSS001DSTR', 'Rossignol Distrikt 2019', 'Rossignol', 'Rossignol board description', 300, 4, true, 1, 3, 0, 0);
+VALUES('PRD096BE55DC1', 'Rossignol Distrikt 2019', 'Rossignol', 'Rossignol board description', 300, 4, true, 1, 4, 0, 0);
+
+INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES('PRDC04AA7FE3F', 'Quicksilver Helmet', 'Quicksilver', 'Quciksilver description', 150, 6, true, 6, 5, 0, 0);
+
+-- add addresses
+
+INSERT INTO address(user_id, address_line_one, address_line_two, is_billing, city, country, postal_code, is_shipping, state)
+VALUES(1, Str. Mihai Bravu nr 196, Str Erou Grigore Nicolae, true, Bucharest, Romania, 105600, false, Bucharest);

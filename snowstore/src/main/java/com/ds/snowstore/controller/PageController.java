@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ds.snowstore.exception.ProductNotFoundException;
 import com.ds.storebackend.dao.CategoryDAO;
@@ -131,9 +132,13 @@ public class PageController {
 	
 	/* Login */
 	@RequestMapping(value="/login")
-	public String login(Model model) {
+	public String login(Model model, @RequestParam(name="error", required=false) String error) {
 		
 		model.addAttribute("title", "Login");
+		
+		if (error != null) {
+			model.addAttribute("message", "Invalid User and/or Password");
+		}
 		
 		return "login";
 	}
