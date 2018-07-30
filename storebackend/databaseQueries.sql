@@ -42,7 +42,7 @@ CREATE TABLE user_detail (
    last_name VARCHAR(50),
    role VARCHAR(50),
    enabled BOOLEAN,
-   password VARCHAR(50),
+   password VARCHAR(60),
    email VARCHAR(100),
    contact_number VARCHAR(15),
    CONSTRAINT pk_user_id PRIMARY KEY(id)
@@ -93,19 +93,19 @@ INSERT INTO category (name, description, image_url, is_active) VALUES ('Helmets'
 -- insert into user_detail
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Sebastian', 'Dobrea', 'ADMIN', true, '{noop}dev', 'ds@gmail.com', '0726332705');
+VALUES ('Sebastian', 'Dobrea', 'ADMIN', true, '$2y$12$C99PudpjPwB6jcR1uXR5OOaaB1cV6Jf0hxcHp2YMZE0zNflFI6hN6', 'ds@gmail.com', '0726332705');
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Jake', 'Burton', 'SUPPLIER', true, '{noop}supplier', 'jakeb@burtonsnowboards.com', '0344566777');
+VALUES ('Jake', 'Burton', 'SUPPLIER', true, '$2y$12$b/9.enc9yLyGEALtCv19SeDvQNdIEIGUYywBNRTIwijXzsHQzv7AG', 'jakeb@burtonsnowboards.com', '0344566777');
 
 INSERT INTO user_detail(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Mike', 'Olson', 'SUPPLIER', true, '{noop}supplier', 'mikeo@bluetomato.com', '4031256789');
+VALUES ('Mike', 'Olson', 'SUPPLIER', true, '$2y$12$OqFO2ldaqWC6Bv3NXfsIIu1fB6u6v22g3M2rZ02eRqic32FI72E1m', 'mikeo@bluetomato.com', '4031256789');
 
 INSERT INTO user_detail(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Marius', 'George', 'SUPPLIER', true, '{noop}supplier', 'mg@funride.ro', '0733669339');
+VALUES ('Marius', 'George', 'SUPPLIER', true, '$2y$12$BEuEt3m1eJsF.1bqWrkycewBoVV66zxcGzrutFxWhI9DzLpQ/TWMi', 'mg@funride.ro', '0733669339');
 
 INSERT INTO user_detail(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Andrei', 'Ion', 'USER', true, '{noop}user', 'andreion@gmail.com', '0747314248');
+VALUES ('Andrei', 'Ion', 'USER', true, '$2y$12$pzSjPdhQbmd6jHrERZwYKeV7BsiK4wg2X1BHiSG/8aGM2VJ9dAokK', 'andreion@gmail.com', '0747314248');
 
 
 
