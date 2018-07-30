@@ -42,7 +42,7 @@ CREATE TABLE user_detail (
    last_name VARCHAR(50),
    role VARCHAR(50),
    enabled BOOLEAN,
-   password VARCHAR(60),
+   password VARCHAR(100),
    email VARCHAR(100),
    contact_number VARCHAR(15),
    CONSTRAINT pk_user_id PRIMARY KEY(id)
@@ -93,7 +93,7 @@ INSERT INTO category (name, description, image_url, is_active) VALUES ('Helmets'
 -- insert into user_detail
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES ('Sebastian', 'Dobrea', 'ADMIN', true, '$2y$12$C99PudpjPwB6jcR1uXR5OOaaB1cV6Jf0hxcHp2YMZE0zNflFI6hN6', 'ds@gmail.com', '0726332705');
+VALUES ('Sebastian', 'Dobrea', 'ADMIN', true, '$2y$12$zUL06Ol4vEEQfK9WN0s2WO3/K29x.RchvsMkDT/JlABGe5GJjMAw.', 'ds@gmail.com', '0726332705');
 
 INSERT INTO user_detail (first_name, last_name, role, enabled, password, email, contact_number)
 VALUES ('Jake', 'Burton', 'SUPPLIER', true, '$2y$12$b/9.enc9yLyGEALtCv19SeDvQNdIEIGUYywBNRTIwijXzsHQzv7AG', 'jakeb@burtonsnowboards.com', '0344566777');
