@@ -22,6 +22,8 @@
 
 <title>Snow Store - ${title}</title>
 
+<link rel="icon" href='<c:url value="/resources/images/favicon.ico" />' type="image/x-icon">
+
 <script>
 	window.menu = '${title}';
 
@@ -73,6 +75,16 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
 					   <div class="alert alert-danger">${message}</div>
+					</div>
+			</div>
+		</c:if>
+		
+		<!-- this will be displayed when the user logs out -->
+		<c:if test="${not empty logout}">
+		    <div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+					   <div class="alert alert-success">${logout}</div>
 					</div>
 			</div>
 		</c:if>

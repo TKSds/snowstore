@@ -52,14 +52,12 @@ footer {
 }
 
 .dataTableImg {
-	
 	width: 100px;
 	height: 100px;
-	
 }
 
 .help-block {
-	color:#FF0000;
+	color: #FF0000;
 }
 
 .adminDataTableImg {
@@ -69,16 +67,18 @@ footer {
 
 /* Bootbox header and close button fix for BS4 */
 .bootbox .modal-header h4 {
-    order: 0;
+	order: 0;
 }
+
 .bootbox .modal-header button {
-    order: 1;
+	order: 1;
 }
 
 /* Modal Fix Alignment */
 .modal-header h4 {
 	order: 0;
 }
+
 .modal-header button {
 	order: 1;
 }
@@ -105,7 +105,6 @@ footer {
 	background-color: #ccc;
 	border-radius: 30px;
 	transition: .5s;
-	
 }
 
 .slider:before {
@@ -120,22 +119,17 @@ footer {
 	transition: .5s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
 	background-color: #0000ff;
-	
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
 	transform: translateX(20px);
 }
 
+/* Table Responsive Fix */
 
-
-
-
-
-
-
-
-
-
+.table-responsive {
+	overflow-x: inherit;
+	overflow-y: hidden;
+}

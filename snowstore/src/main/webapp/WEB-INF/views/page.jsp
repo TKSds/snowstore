@@ -23,6 +23,8 @@
  
 <title>Snow Store - ${title}</title>
 
+<link rel="icon" href='<c:url value="/resources/images/favicon.ico" />' type="image/x-icon">
+
 <script>
 	window.menu = '${title}';
 

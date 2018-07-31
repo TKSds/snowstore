@@ -248,12 +248,10 @@
 		</div>
 
 		<div class="col-lg-12">
-			<div style="overflow: auto">
 
 				<!-- Products table for Admin -->
-
-				<table id="adminProductsTable"
-					class="table table-striped table-bordered">
+              <div class="table-responsive">
+				<table id="adminProductsTable" class="table table-striped table-bordered">
 
 					<thead>
 						<tr>
@@ -284,13 +282,13 @@
 
 
 				</table>
-
+              </div>
 
 			</div>
 
 		</div>
 
 
-	</div>
+	
    
 </div>
