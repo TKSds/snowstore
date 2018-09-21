@@ -3,7 +3,6 @@ package com.ds.storebackend.dao;
 import java.util.List;
 
 import com.ds.storebackend.dto.Address;
-import com.ds.storebackend.dto.Cart;
 import com.ds.storebackend.dto.User;
 
 public interface UserDAO {
@@ -24,7 +23,6 @@ public interface UserDAO {
 	Address getBillingAddress(User user);
 	List<Address> listShippingAddresses(User user);
 	
-	// add a cart
-	boolean updateCart(Cart cart);
+
 
 }

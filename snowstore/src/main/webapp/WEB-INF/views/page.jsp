@@ -15,15 +15,17 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content=""> 
+<meta name="author" content="">
 <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
- 
+
 <title>Snow Store - ${title}</title>
 
-<link rel="icon" href='<c:url value="/resources/images/favicon.ico" />' type="image/x-icon">
+<link rel="icon" href='<c:url value="/resources/images/favicon.ico" />'
+	type="image/x-icon">
 
 <script>
 	window.menu = '${title}';
@@ -91,6 +93,11 @@
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
 
+			<!-- Load only when the user clicks cart button -->
+			<c:if test="${userClickShowCart == true}">
+				<%@include file="cart.jsp"%>
+			</c:if>
+
 		</div>
 
 		<!-- Footer -->
@@ -99,10 +106,10 @@
 
 		<!-- jQuery -->
 		<script src="${js}/jquery.min.js"></script>
-		
+
 		<!-- jQuery Validate Plugin -->
 		<script src="${js}/jquery.validate.js"></script>
-		
+
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 

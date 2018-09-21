@@ -81,6 +81,21 @@ CREATE TABLE cart(
 
 );
 
+-- the cart line table to store the cart details
+
+CREATE TABLE cart_line(
+	id SERIAL,
+	cart_id int,
+	total DECIMAL(10,2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_cart_id FOREIGN KEY (cart_id) REFERENCES cart(id),
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id ) REFERENCES product (id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY (id)
+);
+
 -- add categories
 
 INSERT INTO category (name, description, image_url, is_active) VALUES ('Snowboards', 'Snowboard category description', 'Snowboard_01.png', true);
