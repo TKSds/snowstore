@@ -64,7 +64,10 @@ public class Address implements Serializable {
 	@NotBlank(message = "Please enter postal code, must not exceed the value of 8!")
 	private String postalCode;
 
+	@Column(name="is_billing")
 	private boolean billing;
+	
+	@Column(name="is_shipping")
 	private boolean shipping;
 
 	// Getters and Setters
